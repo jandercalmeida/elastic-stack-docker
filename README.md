@@ -15,6 +15,7 @@ cd /diretorio_baixado/lastic-stack-docker/
 ```bash
 docker-compose up
 ```
+> [!NOTE]
 > Executando em background:
 > ```docker-compose up -d```
 
@@ -57,3 +58,10 @@ Isso significa que, depois de verificarmos que o Metricbeat está ativo, podemos
 
 
 
+## Comandos úteis
+
+Reiniciar o logstash:
+```docker-compose restart logstash01```
+
+Visualizar os logs do logstash:
+```docker-compose logs -f logstash01```
