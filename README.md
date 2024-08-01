@@ -15,5 +15,45 @@ cd /diretorio_baixado/lastic-stack-docker/
 ```bash
 docker-compose up
 ```
+> Executando em background:
+> ```docker-compose up -d```
+
+
+## Acessando o KIBANA
+Então, para acessar a interface do KIBANA:
+http://localhost:5601
+
+
+## Considerações:
+A estrutura de arquivos está definida da seguinte forma:
+
+![image](https://github.com/user-attachments/assets/f15117ef-3336-477a-adbf-0cd2b22288c8)
+
+### Diretório "certs"
+Este é o diretório, montado como volume (ver docker-compose.yml), que estarão inseridos os certificados usados pelo elastic, kibana, etc ...
+
+
+
+### Diretório "filebeat"
+Este é o diretório, montado como volume (ver docker-compose.yml), que estarão inseridos os arquivos de configuração do filebeat.
+
+
+
+### Diretório "logstash"
+Este é o diretório, montado como volume (ver docker-compose.yml), que estarão os arquivos usados na pipeline e ingest data, usados pelo logstash.
+
+*Um ressalva aqui, o logstash, neste ambiente, executa todos os arquivos.conf colocados na subpasta "pipeline".
+*Os files usados como input de uma pipeline poderão ser colocados na subpasta "logstash_ingest_data", bastando declarar no respectivo arquiv.conf o seu caminho dentro da imagem docker do logstash, como no exemplo:
+
+> path => "/usr/share/logstash/ingest_data/meuarquivo.csv"
+
+### Arquivo .env
+Aqui estão definidas diversas variáveis, assim como o usuário e senha padrão do kibana: 
+> elastic:changeme
+
+### Metricbeat
+Nosso Metricbeat depende da integridade do nó ES01 (elastic search) e do nó do Kibana antes de iniciar. As configurações dignas de nota aqui estão no arquivo metricbeat.yml. Já estão habilitados quatro módulos para coleta de métricas, incluindo Elasticsearch, Kibana, Logstash e Docker. 
+Isso significa que, depois de verificarmos que o Metricbeat está ativo, podemos entrar no Kibana e navegar até [“Stack Monitoring” (Monitoramento da stack)](http://localhost:5601/app/monitoring) para ver como estão as coisas. (Fonte: https://www.elastic.co/pt/blog/getting-started-with-the-elastic-stack-and-docker-compose)
+
 
 
