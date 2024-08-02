@@ -49,10 +49,10 @@ Este é o diretório, montado como volume (ver docker-compose.yml), que estarão
 ### Diretório "logstash"
 Este é o diretório, montado como volume (ver docker-compose.yml), que estarão os arquivos usados na pipeline e ingest data, usados pelo logstash.
 
-*Uma ressalva:
+**Uma ressalva:**
 - O logstash, neste ambiente executa a pipeline "test" (ver arquivo pipelines.yml). Assim, acrescente o seu neste arquivo.
 
-*Os files usados como input de uma pipeline poderão ser colocados na subpasta **"logstash_ingest_data"**, bastando declarar no respectivo arquivo.conf o seu caminho dentro da imagem docker do logstash, como no exemplo:
+- Os files usados como input de uma pipeline poderão ser colocados na subpasta **"logstash_ingest_data"**, bastando declarar no respectivo arquivo.conf o seu caminho dentro da imagem docker do logstash, como no exemplo:
 
 > path => "/usr/share/logstash/ingest_data/meuarquivo.csv"
 
