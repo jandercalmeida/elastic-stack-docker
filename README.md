@@ -9,9 +9,11 @@ Veremos detalhes de como subir um ambiente Elastic Stack padrão, composto por E
 Como pré-requisito, o [Docker Desktop ou o Docker Engine com o Docker Compose] (https://docs.docker.com/get-docker/) precisará ser instalado e configurado.
 
 
-Assim, após o docker engine instalado, faça o git clone deste repositório, vá até o diretório e suba o ambente:
-
-cd /diretorio_baixado/lastic-stack-docker/
+Assim, após o docker engine instalado, faça o git clone deste repositório, vá até o diretório e suba o ambiente:
+```bash
+git clone https://github.com/jandercalmeida/elastic-stack-docker/
+```
+Então, execute o docker-compose dentro do diretório baixado:
 ```bash
 docker-compose up
 ```
