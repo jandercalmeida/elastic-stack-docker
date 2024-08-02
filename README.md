@@ -48,10 +48,16 @@ Este é o diretório, montado como volume (ver docker-compose.yml), que estarão
 ### Diretório "logstash"
 Este é o diretório, montado como volume (ver docker-compose.yml), que estarão os arquivos usados na pipeline e ingest data, usados pelo logstash.
 
-*Um ressalva aqui, o logstash, neste ambiente, executa todos os arquivos.conf colocados na subpasta "pipeline".
-*Os files usados como input de uma pipeline poderão ser colocados na subpasta "logstash_ingest_data", bastando declarar no respectivo arquiv.conf o seu caminho dentro da imagem docker do logstash, como no exemplo:
+*Uma ressalva aqui, o logstash, neste ambiente, executa todos os arquivos.conf colocados na **subpasta "pipeline"**.
+
+*Os files usados como input de uma pipeline poderão ser colocados na subpasta **"logstash_ingest_data"**, bastando declarar no respectivo arquivo.conf o seu caminho dentro da imagem docker do logstash, como no exemplo:
 
 > path => "/usr/share/logstash/ingest_data/meuarquivo.csv"
+
+> [!NOTE]
+> Não é necessário executar logstash -f arquivo.conf ...
+> Ao reiniciar o logstash, os ".conf" dentro da pasta "pipeline" serão executados
+
 
 ### Arquivo .env
 Aqui estão definidas diversas variáveis, assim como o usuário e senha padrão do kibana: 
