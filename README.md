@@ -13,6 +13,9 @@ Assim, após o docker engine instalado, faça o git clone deste repositório, v�
 ```bash
 git clone https://github.com/jandercalmeida/elastic-stack-docker/
 ```
+> Caso não tenha o git no seu ambiente, para instalá-lo no linux: sudo apt install git
+
+
 Então, execute o docker-compose dentro do diretório baixado:
 ```bash
 docker-compose up
